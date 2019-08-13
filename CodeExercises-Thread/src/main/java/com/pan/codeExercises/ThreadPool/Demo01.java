@@ -11,6 +11,9 @@ public class Demo01 {
     public static void main(String[] args) {
         //1.提供指定线程数量的线程池
         ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        System.out.println(executorService.getClass());
+
         executorService.execute(new MyThread1());
         executorService.execute(new MyThread2());
 

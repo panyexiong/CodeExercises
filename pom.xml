@@ -12,6 +12,9 @@
     <modules>
         <module>CodeExercises-Dependencies</module>
         <module>CodeExercises-Thread</module>
+        <module>CodeExercises-CommonClasses</module>
+        <module>CodeExercises-Collection</module>
+        <module>CodeExercises-DataStructure</module>
     </modules>
 
 </project>
