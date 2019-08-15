@@ -15,6 +15,7 @@
         <module>CodeExercises-CommonClasses</module>
         <module>CodeExercises-Collection</module>
         <module>CodeExercises-DataStructure</module>
+        <module>CodeExercises-CommonUtils</module>
     </modules>
 
 </project>
