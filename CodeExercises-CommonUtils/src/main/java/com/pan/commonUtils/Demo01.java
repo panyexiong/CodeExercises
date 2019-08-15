@@ -15,8 +15,11 @@ public class Demo01 {
         int ones = 0;
         int zeros = 0;
         for (char char1 : chars) {
-            if (char1 == '1') ones++;
-            else zeros++;
+            if (char1 == '1') {
+                ones++;
+            } else {
+                zeros++;
+            }
         }
 
         System.out.println(Math.abs(ones - zeros));

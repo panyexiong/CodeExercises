@@ -16,6 +16,7 @@
         <module>CodeExercises-Collection</module>
         <module>CodeExercises-DataStructure</module>
         <module>CodeExercises-CommonUtils</module>
+        <module>CodeExercises-BiShi</module>
     </modules>
 
 </project>
