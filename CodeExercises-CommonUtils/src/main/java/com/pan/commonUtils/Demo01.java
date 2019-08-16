@@ -6,10 +6,16 @@ import java.util.Scanner;
 
 public class Demo01 {
 
+    public static void main(String[] args) {
+
+    }
+
     @Test
     public void test01() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("输入个数：");
         int n = scanner.nextInt();
+        System.out.println("输入字符串：");
         char[] chars = scanner.next().toCharArray();
 
         int ones = 0;
@@ -21,7 +27,6 @@ public class Demo01 {
                 zeros++;
             }
         }
-
         System.out.println(Math.abs(ones - zeros));
     }
 }

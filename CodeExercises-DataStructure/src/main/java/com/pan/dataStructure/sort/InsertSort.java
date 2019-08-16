@@ -23,7 +23,5 @@ public class InsertSort {
             arr[insertIndex + 1] = insertVal;
             System.out.printf("第%d轮排序"+Arrays.toString(arr)+"\n",i-1);
         }
-
-
     }
 }
