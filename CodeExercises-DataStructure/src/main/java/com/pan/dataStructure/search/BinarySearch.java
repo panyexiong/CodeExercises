@@ -1,5 +1,8 @@
 package com.pan.dataStructure.search;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author panyexiong
  * @version 1.0
@@ -7,8 +10,9 @@ package com.pan.dataStructure.search;
  */
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = {-11, -2, 3, 4, 5, 6, 77, 888, 999};
-        System.out.println(binarySearch(arr,0,arr.length,0));
+        int[] arr = {-11, -2, 3, 4, 5, 6, 77, 77, 77, 888, 999};
+        List<Integer> list = binarySearch2(arr, 0, arr.length, 77);
+        System.out.println(list);
     }
 
     /**
@@ -19,7 +23,7 @@ public class BinarySearch {
      * @return 如果找到就返回下标，没有找到就返回-1
      */
     public static int binarySearch(int[] arr, int left, int right, int findValue) {
-        if (left>right){
+        if (left > right) {
             return -1;
         }
         int mid = (left + right) / 2;
@@ -28,10 +32,47 @@ public class BinarySearch {
         if (findValue > midVal) {
             //向右递归
             return binarySearch(arr, mid + 1, right, findValue);
-        } else if (findValue < midVal){
-            return binarySearch(arr,left,mid-1,findValue);
-        }else {
+        } else if (findValue < midVal) {
+            return binarySearch(arr, left, mid - 1, findValue);
+        } else {
             return mid;
         }
     }
+
+    public static List<Integer> binarySearch2(int[] arr, int left, int right, int findValue) {
+        if (left > right) {
+            return new ArrayList<>();
+        }
+        int mid = (left + right) / 2;
+        int midVal = arr[mid];
+
+        if (findValue > midVal) {
+            //向右递归
+            return binarySearch2(arr, mid + 1, right, findValue);
+        } else if (findValue < midVal) {
+            return binarySearch2(arr, left, mid - 1, findValue);
+        } else {
+            List<Integer> arrayList = new ArrayList<>();
+            int temp = mid - 1;
+            while (true) {
+                if (temp < 0 || arr[temp] != findValue) {
+                    break;
+                }
+                arrayList.add(temp);
+                temp -= 1;
+            }
+            arrayList.add(mid);
+            temp = mid + 1;
+            while (true) {
+                if (temp > arr.length - 1 || arr[temp] != findValue) {
+                    break;
+                }
+                arrayList.add(temp);
+                temp += 1;
+            }
+            return arrayList;
+        }
+    }
+
+
 }
