@@ -32,7 +32,7 @@ public class Demo01 {
         //根据前面得到的公司动态处理
         for (int i = 1; i < v.length; i++) {
             for (int j = 1; j < v[i].length; j++) {
-                if (weight[i] > j) {
+                if (weight[i - 1] > j) {
                     v[i][j] = v[i - 1][j];
                 } else {
                     v[i][j] = Math.max(v[i - 1][j], val[i - 1] + v[i - 1][j - weight[i - 1]]);
