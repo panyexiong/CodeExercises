@@ -28,6 +28,8 @@ public class Demo01 {
          * v[i][j]表示前i个物品中能够装入容量为j的背包的最大价值
          */
         int[][] v = new int[n + 1][m + 1];
+        //为了记录放入商品的情况，定义一个二维数组
+        int[][] path = new int[n+1][m+1];
 
         //根据前面得到的公司动态处理
         for (int i = 1; i < v.length; i++) {
@@ -35,7 +37,15 @@ public class Demo01 {
                 if (weight[i - 1] > j) {
                     v[i][j] = v[i - 1][j];
                 } else {
-                    v[i][j] = Math.max(v[i - 1][j], val[i - 1] + v[i - 1][j - weight[i - 1]]);
+//                    v[i][j] = Math.max(v[i - 1][j], val[i - 1] + v[i - 1][j - weight[i - 1]]);
+                    //为了记录商品存放到背包的情况，我们不能简单的使用max
+                    if (v[i - 1][j] < val[i - 1] + v[i - 1][j - weight[i - 1]]){
+                        v[i][j]=val[i - 1] + v[i - 1][j - weight[i - 1]];
+                        //当前的情况记录到path
+                        path[i][j] = 1;
+                    }else{
+                        v[i][j] = v[i - 1][j];
+                    }
                 }
             }
         }
@@ -45,6 +55,17 @@ public class Demo01 {
                 System.out.print(v[i][j] + " ");
             }
             System.out.println();
+        }
+
+        //输出最后我们是放入的哪些商品
+        int i = path.length-1;
+        int j = path[0].length-1;
+        while(i>0&&j>0){
+            if (path[i][j] ==1){
+                System.out.printf("第%d个商品放入到背包\n",i);
+                j -= weight[i-1];
+            }
+            i--;
         }
     }
 }
