@@ -43,8 +43,26 @@ public class Demo01 {
      * String ----> 基本数据类型，包装类
      */
     @Test
-    public void test03(){
+    public void test03() {
         String str = "123";
         int i = Integer.parseInt(str);
+    }
+
+    /**
+     * 面试题
+     */
+    @Test
+    public void test04() {
+        Integer i = new Integer(1);
+        Integer j = new Integer(1);
+        System.out.println(i == j);
+
+        Integer m = 1;
+        Integer n = 1;
+        System.out.println(m == n);
+
+        Integer x = 128;
+        Integer y = 128;
+        System.out.println(x == y);
     }
 }
