@@ -18,6 +18,7 @@
         <module>CodeExercises-CommonUtils</module>
         <module>CodeExercises-BiShi</module>
         <module>CodeExercises-LeetCode</module>
+        <module>CodeExercises-JianzhiOffer</module>
     </modules>
 
 </project>
