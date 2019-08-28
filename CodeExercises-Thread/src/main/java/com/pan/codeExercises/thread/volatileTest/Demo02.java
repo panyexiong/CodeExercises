@@ -17,6 +17,7 @@ public class Demo02 {
             new Thread(() -> {
                 for (int j = 0; j < 1000; j++) {
                     thread02.addPlusPlus();
+                    thread02.addAtomic();
                 }
             }, String.valueOf(i)).start();
         }
@@ -25,6 +26,7 @@ public class Demo02 {
             Thread.yield();
         }
         System.out.println(Thread.currentThread().getName() + ": finally number value:" + thread02.number);
+        System.out.println(Thread.currentThread().getName() + ": AtomicInteger type, finally number value:" + thread02.atomicInteger);
     }
 }
 
@@ -40,4 +42,7 @@ class Thread02 extends Thread {
     }
 
     AtomicInteger atomicInteger = new AtomicInteger();
+    public void addAtomic(){
+        atomicInteger.getAndIncrement();
+    }
 }
