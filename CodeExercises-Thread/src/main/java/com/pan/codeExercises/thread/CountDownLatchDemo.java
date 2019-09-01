@@ -1,5 +1,7 @@
 package com.pan.codeExercises.thread;
 
+import com.pan.codeExercises.enumTest.EnumTest;
+
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -9,19 +11,17 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {
-
-    }
-
-    private static void test01() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(6);
 
         for (int i = 0; i < 6; i++) {
-            new Thread(()->{
+            new Thread(() -> {
                 System.out.println(Thread.currentThread().getName());
                 countDownLatch.countDown();
-            }).start();
+            }, EnumTest.forEach_CountryEnum(i+1).getRetMessage()).start();
         }
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName());
     }
+
+
 }
