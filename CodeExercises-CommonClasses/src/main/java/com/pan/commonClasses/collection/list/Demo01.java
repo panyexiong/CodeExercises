@@ -12,8 +12,7 @@ import java.util.*;
 public class Demo01 {
     public static void main(String[] args) {
         List list = new ArrayList();
-        List list1 =  Collections.synchronizedList(new ArrayList());
-        List Vector = new Vector();
+        List<String> list1 =  Collections.synchronizedList(new ArrayList<>());
         list.add(1);
 
         LinkedList linkedList = new LinkedList();
