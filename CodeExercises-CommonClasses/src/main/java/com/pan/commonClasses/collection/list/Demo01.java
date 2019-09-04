@@ -3,6 +3,8 @@ package com.pan.commonClasses.collection.list;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * @author panyexiong
@@ -20,6 +22,9 @@ public class Demo01 {
 
         Vector vector = new Vector();
         vector.add(1);
+        List<String> list2 = new CopyOnWriteArrayList<>();
+        list2.add("1");
+        Set<String> set = new CopyOnWriteArraySet<>();
     }
 
     @Test
