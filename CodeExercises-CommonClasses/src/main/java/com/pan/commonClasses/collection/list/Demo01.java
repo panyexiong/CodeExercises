@@ -2,10 +2,7 @@ package com.pan.commonClasses.collection.list;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * @author panyexiong
@@ -14,8 +11,10 @@ import java.util.Vector;
  */
 public class Demo01 {
     public static void main(String[] args) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(1);
+        List list = new ArrayList();
+        List list1 =  Collections.synchronizedList(new ArrayList());
+        List Vector = new Vector();
+        list.add(1);
 
         LinkedList linkedList = new LinkedList();
         linkedList.add(1);
