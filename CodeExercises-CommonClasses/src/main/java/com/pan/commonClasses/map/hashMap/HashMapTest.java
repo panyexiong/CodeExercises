@@ -9,11 +9,16 @@ import java.util.*;
  */
 public class HashMapTest {
     public static void main(String[] args) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 1);
+        HashMap<Integer, Integer> map = new HashMap<>(13);
+        HashMap<String, Integer> map1 = new HashMap<>(13);
+        Integer put = map.put(1, 1);
+        System.out.println(put);
+        System.out.println(Integer.valueOf(1).hashCode());
         map.put(2, 4);
         map.put(3, 3);
         map.put(4, 2);
+        map1.put("AA",1);
+        System.out.println("AA".hashCode());
 
         Set set = map.keySet();
         Iterator iterator = set.iterator();
