@@ -18,5 +18,7 @@ public class Demo01 {
         String b2 = "b1";
         System.out.println(b1 == b2);
         System.out.println("============");
+
+        StringBuffer stringBuffer = new StringBuffer();
     }
 }
