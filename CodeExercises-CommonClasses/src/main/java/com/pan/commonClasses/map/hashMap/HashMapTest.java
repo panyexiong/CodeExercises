@@ -17,8 +17,8 @@ public class HashMapTest {
         map.put(2, 4);
         map.put(3, 3);
         map.put(4, 2);
-        map1.put("AA",1);
-        System.out.println("AA".hashCode());
+        map1.put("AA",3);
+        System.out.println("+++++++++++"+map1.put("AA", 2));
 
         Set set = map.keySet();
         Iterator iterator = set.iterator();
