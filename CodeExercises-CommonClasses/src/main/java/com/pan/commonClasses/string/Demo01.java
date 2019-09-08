@@ -7,14 +7,16 @@ package com.pan.commonClasses.string;
  */
 public class Demo01 {
     public static void main(String[] args) {
-        int num1 = 0b110;
-        int num2 = 110;
-        int num3 = 0127;
-        int num4 = 0x110A;
+        String a = "a";
+        String a1 = a + 1;
+        String a2 = "a1";
+        System.out.println(a1 == a2);
+        System.out.println("============");
 
-        System.out.println(num1);
-        System.out.println(num2);
-        System.out.println(num3);
-        System.out.println(num4);
+        final String b = "b";
+        String b1 = b + "1";
+        String b2 = "b1";
+        System.out.println(b1 == b2);
+        System.out.println("============");
     }
 }
