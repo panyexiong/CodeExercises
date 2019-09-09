@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class HashMapTest {
     public static void main(String[] args) {
-        HashMap<Integer, Integer> map = new HashMap<>(13);
+        HashMap<Integer, Integer> map = new HashMap<>();
         HashMap<String, Integer> map1 = new HashMap<>(13);
         Integer put = map.put(1, 1);
         System.out.println(put);
