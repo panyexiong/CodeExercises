@@ -6,22 +6,26 @@ package com.pan.dataStructure.binaryTree;
  * @date 2019/9/10 10:17
  */
 public class Node {
-    private int number;
+    private int data;
     private String name;
     private Node leftChildNode;
     private Node rightChildNode;
 
+    public Node(int number) {
+        this.data = number;
+    }
+
     public Node(int number, String name) {
-        this.number = number;
+        this.data = number;
         this.name = name;
     }
 
-    public int getNumber() {
-        return number;
+    public int getData() {
+        return data;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setData(int data) {
+        this.data = data;
     }
 
     public String getName() {
@@ -51,7 +55,7 @@ public class Node {
     @Override
     public String toString() {
         return "Node{" +
-                "number=" + number +
+                "data=" + data +
                 ", name='" + name + '\'' +
                 '}';
     }
@@ -69,4 +73,31 @@ public class Node {
             this.rightChildNode.proOrder();
         }
     }
+
+    /**
+     * 中序遍历
+     */
+    public void infixOrder() {
+        if (this.leftChildNode != null) {
+            this.leftChildNode.infixOrder();
+        }
+        System.out.println(this);
+        if (this.rightChildNode != null) {
+            this.rightChildNode.infixOrder();
+        }
+    }
+
+    /**
+     * 后序遍历
+     */
+    public void postOrder() {
+        if (this.leftChildNode != null) {
+            this.leftChildNode.postOrder();
+        }
+        if (this.rightChildNode != null) {
+            this.rightChildNode.postOrder();
+        }
+        System.out.println(this);
+    }
+
 }
