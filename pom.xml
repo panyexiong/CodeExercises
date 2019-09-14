@@ -19,6 +19,7 @@
         <module>CodeExercises-BiShi</module>
         <module>CodeExercises-LeetCode</module>
         <module>CodeExercises-JianzhiOffer</module>
+        <module>CodeExercises-Spring</module>
     </modules>
 
 </project>
