@@ -1,4 +1,4 @@
-package com.pan.dataStructure.binaryTree;
+package com.pan.dataStructure.tree.binaryTree;
 
 /**
  * @author panyexiong

@@ -13,5 +13,8 @@ public class Demo02_String {
 
         StringBuilder stringBuilder1 = new StringBuilder();
         StringBuilder stringBuilder2 = new StringBuilder("21312");
+        System.out.println(stringBuilder2.length());
+
+        StringBuffer stringBuffer = new StringBuffer();
     }
 }
