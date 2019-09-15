@@ -11,6 +11,12 @@
     <MVC:annotation-driven></MVC:annotation-driven>
 
     <bean id="date" class="java.util.Date"></bean>
+    <bean id="person" class="com.pan.spring.demo02.Person"></bean>
     <bean name="/test1" class="com.pan.spring.demo02.BeanController"></bean>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
 
 </beans>
