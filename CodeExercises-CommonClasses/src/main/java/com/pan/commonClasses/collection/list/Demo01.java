@@ -19,6 +19,10 @@ public class Demo01 {
 
         LinkedList linkedList = new LinkedList();
         linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        linkedList.remove(1);
+
 
         Vector vector = new Vector();
         vector.add(1);
