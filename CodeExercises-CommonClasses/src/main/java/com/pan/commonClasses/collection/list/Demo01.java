@@ -25,6 +25,7 @@ public class Demo01 {
 
 
         Vector vector = new Vector();
+        Vector vector1 = new Vector(2);
         vector.add(1);
         List<String> list2 = new CopyOnWriteArrayList<>();
         list2.add("1");

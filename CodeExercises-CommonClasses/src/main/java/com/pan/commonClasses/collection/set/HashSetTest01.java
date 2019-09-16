@@ -13,6 +13,8 @@ import java.util.Set;
 public class HashSetTest01 {
     public static void main(String[] args) {
         //父类引用指向子类对象
+        Set set1 = new HashSet();
+        set1.add(1);
         Set set = new LinkedHashSet();
         set.add(1);
         set.add(2);
