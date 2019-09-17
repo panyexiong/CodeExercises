@@ -1,4 +1,4 @@
-package com.pan.spring.demo02;
+package com.pan.springMVC.demo02;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;

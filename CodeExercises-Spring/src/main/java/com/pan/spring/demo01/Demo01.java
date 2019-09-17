@@ -1,6 +1,6 @@
 package com.pan.spring.demo01;
 
-import com.pan.spring.demo02.Person;
+import com.pan.springMVC.demo02.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

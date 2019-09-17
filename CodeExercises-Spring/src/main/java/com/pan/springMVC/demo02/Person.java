@@ -1,7 +1,4 @@
-package com.pan.spring.demo02;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
+package com.pan.springMVC.demo02;
 
 /**
  * @author panyexiong

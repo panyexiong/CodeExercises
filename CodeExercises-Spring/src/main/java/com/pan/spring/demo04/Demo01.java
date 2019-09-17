@@ -15,9 +15,10 @@ public class Demo01 {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext4.xml");
 
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
-        userDao.save();
-        userDao.update();
-        userDao.find();
-        userDao.delete();
+        UserDao userDao1 = new JdkProxy(userDao).createProxy();
+        userDao1.save();
+        userDao1.update();
+        userDao1.find();
+        userDao1.delete();
     }
 }

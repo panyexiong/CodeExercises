@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:MVC="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--spring IOC注解-->
+    <!--配值扫描,哪些包下面的类需要使用注解-->
+    <context:component-scan base-package="com.pan.spring.demo05"></context:component-scan>
+
+
+    <aop:config>
+        <aop:pointcut id="pointcut1"
+                      expression="execution(* com.pan.spring.demo05.ProductDaoImpl.save(..))"></aop:pointcut>
+        <aop:pointcut id="pointcut2"
+                      expression="execution(* com.pan.spring.demo05.ProductDaoImpl.delete(..))"></aop:pointcut>
+        <aop:pointcut id="pointcut3"
+                      expression="execution(* com.pan.spring.demo05.ProductDaoImpl.update(..))"></aop:pointcut>
+        <!--配值切面-->
+        <aop:aspect ref="myAspectXML">
+            <aop:before method="checkPri" pointcut-ref="pointcut1"></aop:before>
+            <aop:after-returning method="log" pointcut-ref="pointcut2" returning="result"></aop:after-returning>
+            <aop:around method="around" pointcut-ref="pointcut3"></aop:around>
+        </aop:aspect>
+
+
+    </aop:config>
+
+</beans>
