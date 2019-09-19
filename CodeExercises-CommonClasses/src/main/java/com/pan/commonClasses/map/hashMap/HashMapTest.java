@@ -1,6 +1,9 @@
 package com.pan.commonClasses.map.hashMap;
 
+import org.junit.Test;
+
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author panyexiong
@@ -40,7 +43,12 @@ public class HashMapTest {
             System.out.print(obj + " ");
         }
         System.out.println();
+    }
 
+    @Test
+    public void test1(){
+        Map<String,String> synchronizedMap = Collections.synchronizedMap(new HashMap<>());
 
+        Map<String,String> concurrentHashMap = new ConcurrentHashMap<>();
     }
 }
