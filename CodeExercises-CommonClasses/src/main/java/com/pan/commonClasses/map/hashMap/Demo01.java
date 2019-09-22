@@ -13,6 +13,7 @@ public class Demo01 {
     public void test1(){
         HashMap<Integer,Integer> hashMap = new HashMap<>();
         hashMap.put(20,20);
+
 //        for (int i = 0; i < 17; i++) {
 //            hashMap.put(i,i);
 //        }
