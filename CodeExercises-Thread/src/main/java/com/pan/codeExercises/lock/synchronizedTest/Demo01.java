@@ -9,17 +9,9 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Demo01 {
     public static void main(String[] args) {
-        synchronized (Demo01.class) {
+        int i = 0;
+        i++;
 
-        }
-
-        ReentrantLock reentrantLock = new ReentrantLock();
-        reentrantLock.lock();
-        try {
-
-        } finally {
-            reentrantLock.unlock();
-        }
 
     }
 }
