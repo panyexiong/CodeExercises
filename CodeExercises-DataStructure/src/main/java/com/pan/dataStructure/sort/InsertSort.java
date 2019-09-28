@@ -9,7 +9,8 @@ public class InsertSort {
     }
 
     public static void insertSort(int[] arr) {
-        System.out.println("原始数组："+Arrays.toString(arr));
+        System.out.println("原始数组：" + Arrays.toString(arr));
+        //第一个元素可以认为已经被排序
         for (int i = 1; i < arr.length; i++) {
             //insertVal需要插入的数
             int insertVal = arr[i];
@@ -21,7 +22,8 @@ public class InsertSort {
             }
             //循环结束，表示找到插入的位置
             arr[insertIndex + 1] = insertVal;
-            System.out.printf("第%d轮排序"+Arrays.toString(arr)+"\n",i-1);
+            System.out.printf("第%d轮排序" + Arrays.toString(arr) + "\n", i - 1);
         }
+        System.out.println("最终结果" + Arrays.toString(arr));
     }
 }

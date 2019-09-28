@@ -1,33 +1,37 @@
 package com.pan.dataStructure.sort;
 
-/**
- *
- */
+import java.util.Arrays;
+
 public class QucikSort {
     public static void main(String[] args) {
-        int[] arr = new int[]{8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
+        int[] arr = new int[]{8, 9, 1, 7, 2, -6, 3, 5, 4, 6, 0};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void quickSort(int[] arr, int left, int right) {
+        if (left < right) {
+            int index = getIndex(arr, left, right);
+            quickSort(arr, 0, index - 1);
+            quickSort(arr, index + 1, right);
+        }
+    }
+
+    public static int getIndex(int[] arr, int left, int right) {
+        int temp = arr[left];
         int l = left;
         int r = right;
-        //中轴值
-        int pivot = arr[(left + right) / 2];
-        //while循环的目的是让pivot
-        while (1 < r) {
-            //在pivot的左边一直找，找到大于等于pivot值，才退出
-            while(arr[l]<pivot){
-                l++;
-            }
-
-            //在pivot的右边一直找，找到小于等于pivot值，才退出
-            while(arr[r]>pivot){
+        while (l < r) {
+            while (r > l && arr[r] >= temp) {
                 r--;
             }
-            if (l>=r){
-                break;
+            arr[l] = arr[r];
+            while (l < r && arr[l] <= temp) {
+                l++;
             }
-
+            arr[r] = arr[l];
         }
+        arr[l] = temp;
+        return l;
     }
 }

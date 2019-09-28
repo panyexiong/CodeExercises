@@ -1,32 +1,37 @@
 package com.pan.dataStructure.sort;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 
 public class BubbleSort {
     public static void main(String[] args) {
-//        int[] arr = {3, -2, 6, 1, 9, 5, 2, 0, 3, 4};
-        int[] arr = new int[80000];
-        for (int i = 0; i < 80000; i++) {
-            arr[i] = (int) (Math.random() * 800000);
-        }
-
-        Date date1 = new Date();
-        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date1Str = simpleDateFormat1.format(date1);
-        System.out.println("排序前的时间为："+date1Str);
-
-//        System.out.println(Arrays.toString(arr));
+        int[] arr = {3, -2, 6, 1, 9, 5, 2, 0, 3, 4};
         bubbleSort(arr);
-//        System.out.println(Arrays.toString(arr));
-
-        Date date2 = new Date();
-        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date2Str = simpleDateFormat2.format(date2);
-        System.out.println("排序前的时间为："+date2Str);
-
+        System.out.println(Arrays.toString(arr));
     }
+
+    public static void bubbleSort1(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
+            }
+        }
+    }
+
+    /**
+     * 交换数组中的两个索引位置上的元素
+     *
+     * @param arr
+     * @param index1
+     * @param index2
+     */
+    public static void swap(int[] arr, int index1, int index2) {
+        int temp = arr[index1];
+        arr[index1] = arr[index2];
+        arr[index2] = temp;
+    }
+
 
     /**
      * 优化冒泡排序
@@ -38,17 +43,15 @@ public class BubbleSort {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
                     flag = true;
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+                    swap(arr, j, j + 1);
                 }
             }
 //            System.out.printf("第%d趟排序结果：", i);
 //            System.out.println(Arrays.toString(arr));
             //flag==false表示一次交换都没有发生，表示已经排序完成
-            if (flag == false){
+            if (flag == false) {
                 break;
-            }else{
+            } else {
                 //重置flag，进行下次判断
                 flag = false;
             }
