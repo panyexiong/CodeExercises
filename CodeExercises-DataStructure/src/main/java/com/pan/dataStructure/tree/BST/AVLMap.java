@@ -7,21 +7,21 @@ import java.util.Comparator;
  * @version 1.0
  * @date 2019/9/14 11:07
  */
-public class AVLMap<k, v> {
+public class AVLMap<K, V> {
     private int size;
-    private AVLEntry<k, v> root;
-    private Comparator<k> comparator;
+    private AVLEntry<K, V> root;
+    private Comparator<K> comparator;
 
-    private int compare(k a, k b) {
+    private int compare(K a, K b) {
         if (comparator != null) {
             return comparator.compare(a, b);
         } else {
-            Comparable<k> c = (Comparable<k>) a;
+            Comparable<K> c = (Comparable<K>) a;
             return c.compareTo(b);
         }
     }
 
-    public AVLMap(Comparator<k> comparator) {
+    public AVLMap(Comparator<K> comparator) {
         this.comparator = comparator;
     }
 
@@ -36,12 +36,12 @@ public class AVLMap<k, v> {
         return size == 0;
     }
 
-    public v put(k key,v value){
+    public V put(K key, V value){
         if (root == null){
-            root = new AVLEntry<k,v>(key,value);
+            root = new AVLEntry<>(key,value);
             size++;
         }else{
-            AVLEntry<k,v> p = root;
+            AVLEntry<K, V> p = root;
             while(p!= null){
                 int compareResult = compare(key,p.key);
                 if (compareResult == 0){
@@ -49,11 +49,23 @@ public class AVLMap<k, v> {
                     break;
                 }else if (compareResult < 0){
                     if (p.left == null){
-
+                        p.left = new AVLEntry<>(key,value);
+                        size++;
+                        break;
+                    }else {
+                        p = p.left;
+                    }
+                }else {
+                    if (p.right == null){
+                        p.right = new AVLEntry<>(key,value);
+                        size++;
+                        break;
+                    }else {
+                        p = p.right;
                     }
                 }
             }
         }
-        return null;
+        return value;
     }
 }
