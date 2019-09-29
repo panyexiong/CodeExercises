@@ -1,6 +1,5 @@
 package com.pan.spring.demo01;
 
-import com.pan.springMVC.demo02.Person;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,10 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Demo01 {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Person person = (Person) applicationContext.getBean("person");
-        person.setAge(12);
-        System.out.println(person.getAge());
+
     }
 
     @Test
