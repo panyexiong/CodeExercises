@@ -6,9 +6,9 @@ package com.pan.dataStructure.tree.warmUp;
  * @date 2019/9/29 17:40
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     public TreeNode(int x) {
         val = x;
