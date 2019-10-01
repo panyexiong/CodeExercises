@@ -25,4 +25,11 @@ public class Demo01 {
         System.out.println(userService == userService1);
         userService.login();
     }
+
+    @Test
+    public void test2(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService userService = (UserService) applicationContext.getBean("userService");
+        userService.login();
+    }
 }

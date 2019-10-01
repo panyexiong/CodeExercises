@@ -15,15 +15,21 @@ public class BSTIterator {
 
     public BSTIterator(TreeNode root) {
         ArrayList<Integer> list = new ArrayList<>();
-        inOrder(root,list);
+        inOrder(root, list);
         iterator = list.iterator();
     }
 
+    /**
+     * 中序遍历
+     *
+     * @param p
+     * @param list
+     */
     private void inOrder(TreeNode p, ArrayList<Integer> list) {
-        if(p!=null){
-            inOrder(p.left,list);
+        if (p != null) {
+            inOrder(p.left, list);
             list.add(p.val);
-            inOrder(p.right,list);
+            inOrder(p.right, list);
         }
 
     }
