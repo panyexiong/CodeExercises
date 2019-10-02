@@ -1,17 +1,21 @@
 package com.pan.qianfeng.sourceconflict;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * @author panyexiong
- * @version 1.0
- * @date 2019/10/2 21:47
+ * @date 2019/10/2 - 23:54
  */
-public class SourceConflict {
+public class SynchronizedDemo {
     public static void main(String[] args) {
         Runnable runnable = () -> {
+
             while (TicketCenter.restCount > 0) {
-                System.out.println(Thread.currentThread().getName() + "卖出一张票，剩余" + --TicketCenter.restCount + "张");
+                //对象锁、类锁;需要保证一点：多个线程看到的锁需要是同一把锁
+                synchronized (SynchronizedDemo.class) {
+                    if (TicketCenter.restCount <=0){
+                        return;
+                    }
+                    System.out.println(Thread.currentThread().getName() + "卖出一张票，剩余" + --TicketCenter.restCount + "张");
+                }
             }
         };
 
@@ -25,8 +29,4 @@ public class SourceConflict {
         thread3.start();
         thread4.start();
     }
-}
-
-class TicketCenter {
-    public static int restCount = 100;
 }

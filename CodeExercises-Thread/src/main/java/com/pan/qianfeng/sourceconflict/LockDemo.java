@@ -4,14 +4,23 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author panyexiong
- * @version 1.0
- * @date 2019/10/2 21:47
+ * @date 2019/10/3 - 0:12
  */
-public class SourceConflict {
+public class LockDemo {
     public static void main(String[] args) {
+        //实例化一个锁对象
+        ReentrantLock reentrantLock = new ReentrantLock();
+
         Runnable runnable = () -> {
             while (TicketCenter.restCount > 0) {
+                reentrantLock.lock();
+                if (TicketCenter.restCount <= 0){
+                    return;
+                }
                 System.out.println(Thread.currentThread().getName() + "卖出一张票，剩余" + --TicketCenter.restCount + "张");
+
+                reentrantLock.unlock();
+
             }
         };
 
@@ -25,8 +34,4 @@ public class SourceConflict {
         thread3.start();
         thread4.start();
     }
-}
-
-class TicketCenter {
-    public static int restCount = 100;
 }
