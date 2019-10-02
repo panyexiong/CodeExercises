@@ -9,10 +9,10 @@ import java.util.Set;
  * 无重复字符的最长字串
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串的长度。
  */
-public class Demo03 {
+public class Demo003 {
     @Test
     public void test1() {
-        Demo03 demo03 = new Demo03();
+        Demo003 demo003 = new Demo003();
         String s = "abcabcbb";
         System.out.println(lengthOfLongestSubstring(s));
     }
