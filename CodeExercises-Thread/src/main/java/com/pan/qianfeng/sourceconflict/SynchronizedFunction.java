@@ -10,7 +10,6 @@ public class SynchronizedFunction {
         Runnable runnable = () -> {
 
             while (TicketCenter.restCount > 0) {
-                //对象锁、类锁;需要保证一点：多个线程看到的锁需要是同一把锁
                 soldTicket();
             }
         };

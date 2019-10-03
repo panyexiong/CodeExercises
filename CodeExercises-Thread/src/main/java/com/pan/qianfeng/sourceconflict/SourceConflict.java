@@ -1,7 +1,5 @@
 package com.pan.qianfeng.sourceconflict;
 
-import java.util.concurrent.locks.ReentrantLock;
-
 /**
  * @author panyexiong
  * @version 1.0
@@ -27,6 +25,3 @@ public class SourceConflict {
     }
 }
 
-class TicketCenter {
-    public static int restCount = 100;
-}
