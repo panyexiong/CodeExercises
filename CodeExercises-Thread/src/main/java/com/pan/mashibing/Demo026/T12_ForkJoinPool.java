@@ -1,8 +1,11 @@
 package com.pan.mashibing.Demo026;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.RecursiveTask;
 
 /**
  * @author panyexiong
@@ -38,11 +41,11 @@ public class T12_ForkJoinPool {
                 }
                 System.out.println("from:" + start + " to:" + end + " = " + sum);
 
-            }else {
-                int middle = start + (end-start)/2;
+            } else {
+                int middle = start + (end - start) / 2;
 
-                AddTask subTask1 = new AddTask(start,middle);
-                AddTask subTask2 = new AddTask(middle,end);
+                AddTask subTask1 = new AddTask(start, middle);
+                AddTask subTask2 = new AddTask(middle, end);
                 subTask1.fork();
                 subTask2.fork();
 
@@ -50,7 +53,44 @@ public class T12_ForkJoinPool {
         }
     }
 
-    public static void main(String[] args) {
+    static class AddTask1 extends RecursiveTask<Long> {
 
+        int start, end;
+
+        AddTask1(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        protected Long compute() {
+            if (end - start <= MAX_NUM) {
+                long sum = 0L;
+                for (int i = start; i < end; i++) {
+                    sum += nums[i];
+                }
+                return sum;
+
+            }
+            int middle = start + (end - start) / 2;
+
+            AddTask1 subTask1 = new AddTask1(start, middle);
+            AddTask1 subTask2 = new AddTask1(middle, end);
+            subTask1.fork();
+            subTask2.fork();
+
+
+            return subTask1.join() + subTask2.join();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        ForkJoinPool forkJoinPool = new ForkJoinPool();
+        AddTask1 task = new AddTask1(0, nums.length);
+        forkJoinPool.execute(task);
+        long result = task.join();
+        System.out.println(result);
+
+//        System.in.read();
     }
 }
