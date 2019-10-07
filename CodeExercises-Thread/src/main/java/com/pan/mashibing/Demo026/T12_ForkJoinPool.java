@@ -70,7 +70,6 @@ public class T12_ForkJoinPool {
                     sum += nums[i];
                 }
                 return sum;
-
             }
             int middle = start + (end - start) / 2;
 
@@ -78,7 +77,6 @@ public class T12_ForkJoinPool {
             AddTask1 subTask2 = new AddTask1(middle, end);
             subTask1.fork();
             subTask2.fork();
-
 
             return subTask1.join() + subTask2.join();
         }
