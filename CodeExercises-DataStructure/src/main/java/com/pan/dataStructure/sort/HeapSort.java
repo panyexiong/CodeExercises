@@ -1,6 +1,7 @@
 package com.pan.dataStructure.sort;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * 堆排序
@@ -11,9 +12,21 @@ import java.util.Arrays;
  * @date 2019/9/28 21:03
  */
 public class HeapSort {
+    static int[] arr1 = new int[10000000];
+
+    static {
+        Random random = new Random();
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = random.nextInt(10000000);
+        }
+    }
+
     public static void main(String[] args) {
         int[] arr = {3, -2, 6, 1, 9, 5, 2, 0, 3, 4};
-        heapSort(arr);
+        long start = System.currentTimeMillis();
+        heapSort(arr1);
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 
     public static void heapSort(int[] arr) {
@@ -22,16 +35,16 @@ public class HeapSort {
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
             adjustHeap(arr, i, arr.length);
         }
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
         //将堆顶元素与末尾元素交换，将最大元素沉到数组末端
         //重新定义结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行
         for (int i = arr.length - 1; i > 0; i--) {
             temp = arr[i];
             arr[i] = arr[0];
             arr[0] = temp;
-            adjustHeap(arr,0,i);
+            adjustHeap(arr, 0, i);
         }
-        System.out.println(Arrays.toString(arr));
+//        System.out.println(Arrays.toString(arr));
     }
 
     /**
