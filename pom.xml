@@ -20,6 +20,7 @@
         <module>CodeExercises-LeetCode</module>
         <module>CodeExercises-JianzhiOffer</module>
         <module>CodeExercises-Spring</module>
+        <module>CodeExercises-DesignPattern</module>
     </modules>
 
 </project>

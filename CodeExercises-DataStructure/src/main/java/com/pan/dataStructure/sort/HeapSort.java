@@ -6,6 +6,7 @@ import java.util.Random;
 /**
  * 堆排序
  * 升序排列（大顶堆）
+ * 降序排序（小顶堆）
  *
  * @author panyexiong
  * @version 1.0
