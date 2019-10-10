@@ -55,7 +55,7 @@ public class Main02 {
             for (int i = 0; i < mask.length; i++) {
                 if ((mask[i] & Integer.valueOf(ip1[i])) != (mask[i] & Integer.valueOf(ip2[i]))) {
                     System.out.println(false);
-                    break;
+                    return;
                 }
             }
             System.out.println(true);
