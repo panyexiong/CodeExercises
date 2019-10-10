@@ -3,7 +3,6 @@ package com.pan.bishi.pingankeji;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.jar.JarEntry;
 
 /**
  * @author panyexiong
@@ -17,7 +16,7 @@ public class Main01 {
         String[] s = str.split(" ");
         char[] c1 = s[0].toCharArray();
         char[] c2 = s[1].toCharArray();
-        getLCString(c1, c2);
+        getMaxLen(c1, c2);
 
         //用于保存所有公共子串
         List<String> list = new ArrayList<>();
@@ -26,7 +25,7 @@ public class Main01 {
 
     }
 
-    public static void getLCString(char[] str1, char[] str2) {
+    public static void getMaxLen(char[] str1, char[] str2) {
         int len1 = str1.length;
         int len2 = str2.length;
         int maxLen = len1 > len2 ? len1 : len2;
