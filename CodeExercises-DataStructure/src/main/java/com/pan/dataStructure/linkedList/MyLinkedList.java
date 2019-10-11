@@ -119,6 +119,7 @@ public class MyLinkedList {
 
     /**
      * 删除指定索引位置的元素
+     * 需要保存当前节点的前一个节点
      *
      * @param index
      * @return
