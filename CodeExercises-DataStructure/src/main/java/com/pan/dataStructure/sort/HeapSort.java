@@ -1,5 +1,6 @@
 package com.pan.dataStructure.sort;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -24,8 +25,9 @@ public class HeapSort {
     public static void main(String[] args) {
         int[] arr = {3, -2, 6, 1, 9, 5, 2, 0, 3, 4};
         long start = System.currentTimeMillis();
-        heapSort(arr1);
+        heapSort(arr);
         long end = System.currentTimeMillis();
+        System.out.println(Arrays.toString(arr));
         System.out.println(end - start);
     }
 

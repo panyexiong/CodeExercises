@@ -2,7 +2,7 @@ package com.pan.dataStructure.sort;
 
 import java.util.Arrays;
 
-public class QucikSort {
+public class QuickSort {
     public static void main(String[] args) {
         int[] arr = new int[]{8, 9, 1, 7, 2, -6, 3, 5, 4, 6, 0};
         quickSort(arr, 0, arr.length - 1);
