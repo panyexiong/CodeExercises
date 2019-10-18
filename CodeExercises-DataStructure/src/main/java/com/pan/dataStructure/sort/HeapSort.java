@@ -7,6 +7,11 @@ import java.util.Random;
  * 堆排序
  * 升序排列（大顶堆）
  * 降序排序（小顶堆）
+ * 基本思想：
+ * 1.将待排序数组构造成一个大顶堆
+ * 2.此时，整个序列的最大值就是堆定的根节点
+ * 3.将其与末尾元素进行交换，此时末尾就为最大值
+ * 4.然后将剩余n-1个元素重新狗造成一个堆，依次类推
  *
  * @author panyexiong
  * @version 1.0
@@ -57,9 +62,13 @@ public class HeapSort {
      * @param length 表示对多少个元素继续调整，length是在逐渐的减少
      */
     public static void adjustHeap(int[] arr, int i, int length) {
+        //取出当前元素的值
         int temp = arr[i];
+        //j指向i的左子节点
         for (int j = i * 2 + 1; j < length; j = j * 2 + 1) {
+            //arr[j] < arr[j + 1]说明左子节点的值小于右子节点的值
             if (j + 1 < length && arr[j] < arr[j + 1]) {
+                //指向右子节点
                 j++;
             }
             //如果子节点大于父节点
