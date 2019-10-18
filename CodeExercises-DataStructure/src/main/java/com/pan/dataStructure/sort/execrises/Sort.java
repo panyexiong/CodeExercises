@@ -25,7 +25,7 @@ public class Sort {
 
     public static int getIndex(int[] arr, int left, int right) {
         //枢纽元
-        int temp = getTemp(arr, left, right);
+        int temp = arr[left];
         while (left < right) {
             while (left < right && arr[right] >= temp) {
                 right--;
