@@ -76,11 +76,11 @@ public class MergeSort {
 
         t = 0;
         int tempLeft = left;
-        System.out.println("tempLeft = " + tempLeft + ", right = " + right);
-        while (tempLeft <= right) {
-            arr[tempLeft] = temp[t];
+//        System.out.println("tempLeft = " + tempLeft + ", right = " + right);
+        while (left <= right) {
+            arr[left] = temp[t];
             t++;
-            tempLeft++;
+            left++;
         }
     }
 }
