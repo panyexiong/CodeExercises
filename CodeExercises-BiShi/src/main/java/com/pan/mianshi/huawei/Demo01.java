@@ -1,5 +1,7 @@
 package com.pan.mianshi.huawei;
 
+import org.junit.Test;
+
 import java.util.Scanner;
 
 /**
@@ -31,6 +33,23 @@ public class Demo01 {
                 num1 = yushu;
             }
         }
+    }
 
+    public int fun(int num1,int num2){
+        int max = num1>num2?num1:num2;
+        int min = num1<num2?num1:num2;
+        while (true){
+            int yushu = max%min;
+            if (yushu == 0){
+                return min;
+            }else {
+                min = yushu;
+            }
+        }
+    }
+
+    @Test
+    public void test(){
+        System.out.println(fun(55, 36));
     }
 }
