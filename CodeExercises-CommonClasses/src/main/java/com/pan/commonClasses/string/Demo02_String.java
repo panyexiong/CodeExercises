@@ -1,20 +1,34 @@
 package com.pan.commonClasses.string;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author panyexiong
  * @version 1.0
  * @date 2019/9/12 17:46
  */
-public class Demo02_String {
+public class Demo02_String extends Test{
+    Test test;
     public static void main(String[] args) {
-        String string1 = "123";
-        String string2 = new String("1234");
+        ArrayList list1 = new ArrayList();
+        list1.add(1);
+        list1.add(2);
+        list1.add(3);
+        ArrayList clone = (ArrayList) list1.clone();
+        System.out.println(clone.getClass()==list1.getClass());
+        System.out.println(clone.getClass().getName());
+        System.out.println(new Integer(1).hashCode());
+        System.out.println(new String("12").hashCode());
+        System.out.println(new Boolean(true).hashCode());
 
+    }
 
-        StringBuilder stringBuilder1 = new StringBuilder();
-        StringBuilder stringBuilder2 = new StringBuilder("21312");
-        System.out.println(stringBuilder2.length());
+}
 
-        StringBuffer stringBuffer = new StringBuffer();
+class Test {
+    static {
+        System.out.println("静态代码块执行！！！");
     }
 }

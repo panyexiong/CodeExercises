@@ -17,7 +17,7 @@ public class SpinLockDemo {
         new Thread(() -> {
             spinLockDemo.myLock();
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -46,7 +46,7 @@ public class SpinLockDemo {
         Thread thread = Thread.currentThread();
         System.out.println(Thread.currentThread().getName() + "\t come in");
         while (!atomicReference.compareAndSet(null, thread)) {
-
+            System.out.println(Thread.currentThread().getName() + "\t waiting");
         }
     }
 

@@ -35,6 +35,7 @@ public class Demo01 {
     @Test
     public void testListRemove(){
         List list = new ArrayList();
+        List list1 = new LinkedList();
         //add中的数值自动装箱，按顺序存值
         list.add(1);
         list.add(2);

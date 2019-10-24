@@ -1,4 +1,4 @@
-package com.pan.commonClasses;
+package com.pan.commonClasses.string;
 
 
 import org.junit.Test;
