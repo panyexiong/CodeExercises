@@ -103,10 +103,10 @@ public class BinaryTree {
         if (root == null) {
             return;
         }
-        List<Node> list = new LinkedList<>();
+        LinkedList<Node> list = new LinkedList<>();
         list.add(root);
         while (!list.isEmpty()) {
-            Node curNode = ((LinkedList<Node>) list).pop();
+            Node curNode = list.pop();
             System.out.println(curNode.data);
             if (curNode.leftChildNode != null) {
                 list.add(curNode.leftChildNode);
