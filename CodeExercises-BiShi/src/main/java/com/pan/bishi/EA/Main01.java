@@ -1,6 +1,6 @@
 package com.pan.bishi.EA;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Scanner;
 
 /**
  * @author panyexiong
@@ -8,42 +8,26 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2019/10/31 20:10
  */
 public class Main01 {
-    private static AtomicInteger atomicInteger = new AtomicInteger();
-
     public static void main(String[] args) {
-        A a= new A();
-        try {
-            atomicInteger.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        a.start();
-    }
-    static class A extends Thread{
-        @Override
-        public void run() {
-            atomicInteger.lazySet(1);
-            System.out.println(atomicInteger.get());
-            atomicInteger.notify();
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(recursion(num));
+        if (num == 1){
+            System.out.println(1);
+        }else {
+            double result = recursion(2*num)/recursion(num)/recursion(num+1);
+            System.out.println((int) result);
         }
     }
-    public static int calc(int a) {
-        int result = 0, i = 0, j = 0;
-        for (int k = a; k > 0; k--) {
-            if (j > 0) {
-                j = k * 10 + j;
-            } else {
-                j = k;
-            }
-            while (j >= 10) {
-                int t = j % 100;
-                j = j / 100;
-                result = ((i++ % 2 == 0) ? result - t : result + t);
-            }
+
+    public static double recursion(double num){
+        double result = num;
+        if (result == 1){
+            return 1;
+        }else {
+            result = result * recursion(result-1);
+            return result;
         }
-        if (j > 0) {
-            result = ((i++ % 2 == 0) ? result - j : result + j);
-        }
-        return result;
     }
 }
