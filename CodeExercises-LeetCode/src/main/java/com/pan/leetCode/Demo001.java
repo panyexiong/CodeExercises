@@ -10,18 +10,15 @@ import java.util.Map;
  */
 public class Demo001 {
     public int[] twoSum(int[] nums, int target) {
-        if (nums == null || nums.length < 2){
-            return null;
-        }
-        int[] res = new int[]{-1,-1};
         Map<Integer,Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(target - nums[i])){
-                res[0] = map.get(target-nums[i]);
-                res[1] = i;
+            int complement = target - nums[i];
+            if (map.containsKey(complement)){
+                return new int[]{i,map.get(complement)};
             }
             map.put(nums[i],i);
         }
-        return res;
+
+        throw new IllegalArgumentException("No two sum solution");
     }
 }
