@@ -1,5 +1,7 @@
 package com.pan.commonClasses.string;
 
+import org.junit.Test;
+
 import java.lang.reflect.Field;
 
 /**
@@ -20,6 +22,15 @@ public class Demo04_testReflection {
         System.out.println("s= " + s);
         System.out.println(s == s1);
         System.out.println(s1);
+    }
+
+    @Test
+    public void test01() {
+        String s0 = "abcd";
+        String s1 = "abcd";
+        String s2 = "ab" + "cd";
+        System.out.println(s0==s1);
+        System.out.println(s0==s2);
 
     }
 }

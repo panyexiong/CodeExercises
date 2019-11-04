@@ -27,17 +27,10 @@ public class StringTest {
      */
     @Test
     public void test02() {
-
-        //通过字面量定义的方式：此时的s1和s2的数据JavaEE声明在方法区中的字符床常量池中。
-        String s1 = "JavaEE";
-        String s2 = "JavaEE";
-
-        String s3 = new String("JavaEE");
-        String s4 = new String("JavaEE");
-
-        System.out.println(s1 == s2);
-        System.out.println(s1 == s3);
-        System.out.println(s1 == s4);
+        String s1 = "ab";
+        String s2 = "cd";
+        String s3 = s1 + s2;
+        String s4 = "abcd";
         System.out.println(s3 == s4);
     }
 
@@ -52,8 +45,13 @@ public class StringTest {
 
     @Test
     public void test04() {
-        Scanner scanner = new Scanner(System.in);
-        int i = scanner.nextInt();
-        System.out.println(i);
+        String s = "a" + "b" + "c";
+        String s1 = "a";
+        String s2 = "b";
+        String s3 = "c";
+        String s4 = s1 + s2 + s3;
+
+        System.out.println(s);
+        System.out.println(s4);
     }
 }
