@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.lang.reflect.Field;
 
 /**
+ * 通过反射的方式改变String对象的值
+ *
  * @author panyexiong
  * @date 2019/11/2 - 22:32
  */
@@ -29,8 +31,8 @@ public class Demo04_testReflection {
         String s0 = "abcd";
         String s1 = "abcd";
         String s2 = "ab" + "cd";
-        System.out.println(s0==s1);
-        System.out.println(s0==s2);
+        System.out.println(s0 == s1);
+        System.out.println(s0 == s2);
 
     }
 }
