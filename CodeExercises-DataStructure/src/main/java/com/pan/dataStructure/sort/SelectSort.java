@@ -11,6 +11,7 @@ public class SelectSort {
     public static void selectSort(int[] arr) {
         System.out.println("未排序："+Arrays.toString(arr));
         for (int i = 0; i < arr.length - 1; i++) {
+            //使用minIndex记录每一轮最小值的索引
             int minIndex = i;
             //从i+1开始遍历，找出最小的数，记录它的索引位置
             for (int j = i + 1; j < arr.length; j++) {

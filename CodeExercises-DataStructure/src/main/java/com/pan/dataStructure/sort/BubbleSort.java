@@ -7,7 +7,6 @@ public class BubbleSort {
         int[] arr = {3, -2, 6, 1, 9, 5, 2, 0, 3, 4};
         bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
-
     }
 
     public static void bubbleSort1(int[] arr) {
@@ -47,8 +46,6 @@ public class BubbleSort {
                     swap(arr, j, j + 1);
                 }
             }
-//            System.out.printf("第%d趟排序结果：", i);
-//            System.out.println(Arrays.toString(arr));
             //flag==false表示一次交换都没有发生，表示已经排序完成
             if (flag == false) {
                 break;
