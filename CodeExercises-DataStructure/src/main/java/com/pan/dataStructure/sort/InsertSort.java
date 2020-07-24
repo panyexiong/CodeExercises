@@ -31,13 +31,12 @@ public class InsertSort {
 
     public static void insertSort1(int[] arr) {
         System.out.println("原数组：" + Arrays.toString(arr));
-        //默认索引为0的位置已经排序
+
         for (int i = 1; i < arr.length; i++) {
             //temp当前需要比较的值
             Integer temp = arr[i];
             int j;
             for (j = i; j > 0 && temp.compareTo(arr[j - 1]) < 0; j--) {
-                //往后移
                 arr[j] = arr[j - 1];
             }
             arr[j] = temp;
