@@ -39,6 +39,7 @@ public class HeapSort {
     public static void heapSort(int[] arr) {
         int temp = 0;
         //将无序序列构建成一个堆，根据升序降序需求选择大顶堆或小顶堆
+        //从第一个非叶子节点开始
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
             adjustHeap(arr, i, arr.length);
         }
