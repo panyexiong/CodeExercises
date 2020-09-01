@@ -53,12 +53,11 @@ public class MergeSort {
             if (arr[i] <= arr[j]) {
                 temp[t] = arr[i];
                 i++;
-                t++;
             } else {
                 temp[t] = arr[j];
                 j++;
-                t++;
             }
+            t++;
         }
 
         //把有剩余数据的一边的数据依次全部填充到temp
@@ -77,10 +76,71 @@ public class MergeSort {
         t = 0;
 //        int tempLeft = left;
 //        System.out.println("tempLeft = " + tempLeft + ", right = " + right);
+        //把最终排序好的temp数组复制给原数组arr
         while (left <= right) {
             arr[left] = temp[t];
             t++;
             left++;
+        }
+    }
+
+    /**
+     * 迭代法：
+     *
+     * @param arr
+     */
+    public static int[] merge_sort(int[] arr) {
+        int len = arr.length;
+        int[] result = new int[len];
+        int block, start;
+
+        for (block = 1; block < len * 2; block *= 2) {
+            for (start = 0; start < len; start += 2 * block) {
+                int low = start;
+                int mid = (start + block) < len ? (start + 2 * block) : len;
+                int high = (start + 2 * block) < len ? (start + 2 * block) : len;
+
+                int start1 = low, end1 = mid;
+                int start2 = mid, end2 = high;
+                while (start1 < end1 && start2 < end2) {
+                    result[low++] = arr[start1] < arr[start2] ? arr[start1++] : arr[start2++];
+                }
+                while (start1 < end1) {
+                    result[low++] = arr[start1++];
+                }
+                while (start2 < end2) {
+                    result[low++] = arr[start2++];
+                }
+            }
+            int[] temp = arr;
+            arr = result;
+            result = temp;
+        }
+        result = arr;
+        return result;
+    }
+
+    public static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int len = end - start, mid = (len >> 1) + start;
+        int start1 = start, end1 = mid;
+        int start2 = mid + 1, end2 = end;
+        merge_sort_recursive(arr, result, start1, end1);
+        merge_sort_recursive(arr, result, start2, end2);
+        int k = start;
+        while (start1 <= end1 && start2 <= end2) {
+            result[k++] = arr[start1] < arr[start2] ? arr[start1] : arr[start2++];
+        }
+        while (start1 <= end1){
+            result[k++] = arr[start1++];
+        }
+        while (start2 <= end2){
+            result[k++] = arr[start2++];
+        }
+        for(k = start; k<= end; k++){
+            arr[k] = result[k];
         }
     }
 }
