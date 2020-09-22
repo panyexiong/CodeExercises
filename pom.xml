@@ -21,6 +21,7 @@
         <module>CodeExercises-JianzhiOffer</module>
         <module>CodeExercises-Spring</module>
         <module>CodeExercises-DesignPattern</module>
+        <module>CodeExercises-Java8</module>
     </modules>
 
 </project>
