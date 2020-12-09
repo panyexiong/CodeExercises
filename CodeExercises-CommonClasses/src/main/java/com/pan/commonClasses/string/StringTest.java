@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * String的使用
+ * @author panyexiong
  */
 public class StringTest {
 
